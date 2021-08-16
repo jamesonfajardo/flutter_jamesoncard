@@ -51,7 +51,7 @@ class Responsive {
     var value = initialValue;
 
     // map of user defined breakpoint and the value related to it
-    if (breakpointMap != null && mobileFirst == false) {
+    if (mobileFirst == false) {
       // iterate through the user defined map and set the breakpoints and values
       // uses MAX width
       breakpointMap.forEach((key, mapValue) {
@@ -59,7 +59,7 @@ class Responsive {
       });
     }
 
-    if (breakpointMap != null && mobileFirst == true) {
+    if (mobileFirst == true) {
       // iterate through the user defined map and set the breakpoints and values
       // uses MIN width
       breakpointMap.forEach((key, mapValue) {

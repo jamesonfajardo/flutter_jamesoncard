@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+
+// widget
+import '../widget/info_card.dart';
 
 // external packages
 import '../widget/card_launcher.dart';
@@ -46,27 +50,43 @@ class _HomepageState extends State<Homepage> {
                 color: Colors.white,
               ),
             ),
-            CardLauncher(
-              icon: Icons.email,
-              label: 'jameson.fajardo@gmail.com',
-              url:
-                  'mailto:jameson.fajardo@gmail.com?subject=We\'ve checked your HireMe App&body=Hi Jameson, We\'ve downloaded your HireMe App and we\'re sending this email via the said app. Regards.',
-            ),
-            CardLauncher(
-              icon: Icons.phone,
-              label: '+63 939 983 8712',
-              url: 'tel:+63 939 983 8712',
-            ),
-            // CardLauncher(
-            //   icon: Icons.message,
-            //   label: '+63 939 983 8712',
-            //   url: 'sms:+639399838712',
-            // ),
-            CardLauncher(
-              icon: FontAwesomeIcons.linkedin,
-              label: 'linkedin.com/in/jamesonf',
-              url: 'https://www.linkedin.com/in/jamesonf/',
-            ),
+
+            // ! Email
+            Platform.isIOS
+                ? InfoCard(
+                    icon: Icons.email,
+                    label: 'jameson.fajardo@gmail.com',
+                  )
+                : CardLauncher(
+                    icon: Icons.email,
+                    label: 'jameson.fajardo@gmail.com',
+                    url:
+                        'mailto:jameson.fajardo@gmail.com?subject=We\'ve checked your HireMe App&body=Hi Jameson, We\'ve downloaded your HireMe App and we\'re sending this email via the said app. Regards.',
+                  ),
+
+            // ! Call
+            Platform.isIOS
+                ? InfoCard(
+                    icon: Icons.phone,
+                    label: '+63 998 889 0509',
+                  )
+                : CardLauncher(
+                    icon: Icons.phone,
+                    label: '+63 998 889 0509',
+                    url: 'tel:+63 998 889 0509',
+                  ),
+
+            // ! linkedin
+            Platform.isIOS
+                ? InfoCard(
+                    icon: FontAwesomeIcons.linkedin,
+                    label: 'linkedin.com/in/jamesonf',
+                  )
+                : CardLauncher(
+                    icon: FontAwesomeIcons.linkedin,
+                    label: 'linkedin.com/in/jamesonf',
+                    url: 'https://www.linkedin.com/in/jamesonf/',
+                  ),
           ],
         ),
       ),
